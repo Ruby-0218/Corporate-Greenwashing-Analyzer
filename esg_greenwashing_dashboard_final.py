@@ -524,9 +524,7 @@ def load_and_prepare_data():
 df = load_and_prepare_data()
 
 
-# =========================================================
 # 3. Header and routing
-# =========================================================
 pages = [
     "Overview",
     "Emissions Intelligence",
@@ -578,9 +576,7 @@ def filter_data_interactive(base_df, key_prefix="global"):
     return filtered
 
 
-# =========================================================
 # Page 1: Overview
-# =========================================================
 if page == "Overview":
     st.markdown(
         """
@@ -723,9 +719,7 @@ if page == "Overview":
     render_next_page_button("Emissions Intelligence")
 
 
-# =========================================================
 # Page 2: Emissions Intelligence
-# =========================================================
 elif page == "Emissions Intelligence":
     st.markdown("## Emissions Intelligence")
     st.markdown("Scope 1, Scope 2, and Scope 3 emissions reveal very different climate stories. In many Energy companies, Scope 3 emissions dominate because downstream use of sold products carries the largest climate impact.")
@@ -1175,7 +1169,7 @@ elif page == "Prediction Model":
         cm_df = pd.DataFrame(cm, index=["Actual Clean", "Actual Flagged"], columns=["Predicted Clean", "Predicted Flagged"])
         cm_long = cm_df.reset_index().melt(id_vars="index", var_name="Predicted", value_name="Count").rename(columns={"index": "Actual"})
         cm_chart = alt.Chart(cm_long).mark_rect().encode(
-            x=alt.X("Predicted:N", title=None),
+            x=alt.X("Predicted:N", title=None, axis=alt.Axis(labelAngle=0)),
             y=alt.Y("Actual:N", title=None),
             color=alt.Color("Count:Q", title="Count"),
             tooltip=["Actual:N", "Predicted:N", "Count:Q"],

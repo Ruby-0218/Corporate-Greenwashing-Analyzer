@@ -1,12 +1,11 @@
 # Corporate Greenwashing Analyzer
 **An end-to-end ESG analytics platform detecting greenwashing patterns via Machine Learning & Interactive Visualizations.**
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://corporate-greenwashing-analyzer-any9e9omuwmcpbudtvm6h6.streamlit.app/?page=Overview)
 
 ## Live Application
-Try the interactive dashboard here: **[Corporate Greenwashing Analyzer (Live Demo)](https://corporate-greenwashing-analyzer-any9e9omuwmcpbudtvm6h6.streamlit.app/?page=Overview)**
+Try the interactive dashboard here: **[Corporate Greenwashing Analyzer](https://corporate-greenwashing-analyzer-any9e9omuwmcpbudtvm6h6.streamlit.app/?page=Overview)**
 
-## 📖 Project Overview
+## Project Overview
 Over the past decade, ESG (Environmental, Social, and Governance) reporting has become standard practice for large-cap companies. However, a rising ESG score does not always indicate a shrinking carbon footprint. 
 
 This project investigates the paradox of **Corporate Greenwashing**—instances where public climate narratives and sustainability scores outpace genuine environmental progress. By merging longitudinal ESG data (2010–2024) with Machine Learning, this platform decodes greenwashing signatures across the Energy, Utilities, and Industrials sectors. 

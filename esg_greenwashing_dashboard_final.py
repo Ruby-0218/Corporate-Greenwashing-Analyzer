@@ -27,9 +27,7 @@ except Exception:
     yf = None
 
 
-# =========================================================
 # 0. Basic settings
-# =========================================================
 st.set_page_config(
     layout="wide",
     page_title="Corporate Greenwashing Analyzer",
@@ -37,9 +35,8 @@ st.set_page_config(
 alt.data_transformers.disable_max_rows()
 
 
-# =========================================================
+
 # 1. CSS
-# =========================================================
 st.markdown(
     """
     <style>
@@ -293,9 +290,7 @@ st.markdown(
 )
 
 
-# =========================================================
 # 2. Helper functions
-# =========================================================
 def render_top_navigation(pages: list[str], active_page: str):
     nav_cols = st.columns(len(pages), gap="small")
     for idx, nav_page in enumerate(pages):
@@ -832,9 +827,7 @@ elif page == "Emissions Intelligence":
     render_next_page_button("Commitment Tracker")
 
 
-# =========================================================
 # Page 3: Commitment Tracker
-# =========================================================
 elif page == "Commitment Tracker":
     st.markdown("## Commitment Tracker")
     st.markdown("Net-zero targets, SBTi commitments, and third-party verification are important signals. But a credible commitment should be followed by measurable reductions in emissions or carbon intensity.")
@@ -881,7 +874,7 @@ elif page == "Commitment Tracker":
         c1, c2 = st.columns([1, 1])
         with c1:
             bar = alt.Chart(summary).mark_bar().encode(
-                x=alt.X("commitment_status:N", title=None),
+                x=alt.X("commitment_status:N", title=None, axis=alt.Axis(labelAngle=0)),
                 y=alt.Y("greenwashing_rate:Q", title="Greenwashing Rate", axis=alt.Axis(format="%")),
                 color=alt.Color("commitment_status:N", legend=None),
                 tooltip=["commitment_status:N", alt.Tooltip("greenwashing_rate:Q", format=".1%"), "observations:Q", alt.Tooltip("avg_esg:Q", format=".1f")],
@@ -915,9 +908,7 @@ elif page == "Commitment Tracker":
     render_next_page_button("Greenwashing Explorer")
 
 
-# =========================================================
 # Page 4: Greenwashing Explorer
-# =========================================================
 elif page == "Greenwashing Explorer":
     st.markdown("## Greenwashing Company Explorer")
     st.markdown("Select a company to inspect whether ESG scores, emissions, and climate commitments move in the same direction. This turns the dashboard into a company-level ESG due diligence tool.")
@@ -1010,9 +1001,7 @@ elif page == "Greenwashing Explorer":
     render_next_page_button("Sector Benchmarking")
 
 
-# =========================================================
 # Page 5: Sector Benchmarking
-# =========================================================
 elif page == "Sector Benchmarking":
     st.markdown("## Sector Benchmarking")
     st.markdown("This page compares Energy, Utilities, and Industrials firms by ESG scores, emissions intensity, and greenwashing frequency. The peer map is designed to identify companies that combine high emissions intensity with high ESG scores.")
@@ -1107,9 +1096,7 @@ elif page == "Sector Benchmarking":
     render_next_page_button("Prediction Model")
 
 
-# =========================================================
 # Page 6: Prediction Model
-# =========================================================
 elif page == "Prediction Model":
     st.markdown("## Machine Learning Greenwashing Prediction")
     st.markdown("This page trains a Random Forest classifier to predict the binary greenwashing flag. The goal is not to claim causal inference, but to identify which variables are most useful in detecting a credibility gap.")
@@ -1218,9 +1205,7 @@ elif page == "Prediction Model":
     render_next_page_button("Live Financials")
 
 
-# =========================================================
 # Page 7: Live Financials
-# =========================================================
 elif page == "Live Financials":
     st.markdown("## Live Financials")
     st.markdown("This optional page connects company-level ESG analysis with live market information. If Yahoo Finance does not return data for a ticker, the dashboard will still work without breaking the page.")
